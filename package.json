@@ -12,12 +12,16 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "last 1 chrome versions"
+  ],
   "bugs": {
     "url": "https://github.com/mitia-anah/country-quiz/issues"
   },
   "homepage": "https://github.com/mitia-anah/country-quiz#readme",
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
   }
 }

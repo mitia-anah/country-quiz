@@ -1,10 +1,7 @@
-import React from 'react'
+const { default: Quiz } = require("./Quiz");
 
-function QuizData() {
-    return (
-        <div>
+export default QuizQuestion = [
+    {
 
-        </div>
-    )
-}
-export default QuizData
+    }
+]
