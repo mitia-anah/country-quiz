@@ -1,34 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+// import Quiz from './component/Quiz';
+import QuizData from './component/QuizData';
 
 function App() {
-    const [quiz, setQuiz] = useState([])
-    const API = 'https://restcountries.eu/rest/v2/all'
-
-    const displayQuest = async () => {
-        try {
-            const res = await fetch(API);
-            const data = await res.json()
-            setQuiz(data)
-        } catch (e) {
-            console.error(e);
-        }
-    }
-    useEffect(() => {
-        displayQuest()
-    }, [])
     return (
         <div>
             <h1>Country Quiz</h1>
-            {quiz.map(
-                data =>
-                    <div>
-                        <h5>{data.capital}</h5>
-                        <img src={data.flag} />
-                    </div>
-
-            )}
+            <QuizData />
         </div>
     )
 }
-
 export default App
