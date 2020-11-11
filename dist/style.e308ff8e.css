@@ -1,5 +1,18 @@
+.app {
+    max-width: 600px;
+    margin: 5rem auto ;
+}
+
 img {
-    width: 20px;
+    width: 50px;
+}
+
+.options {
+    padding: 1rem;
+    max-width: 100%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

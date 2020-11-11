@@ -4,10 +4,10 @@ import QuizData from './component/QuizData';
 
 function App() {
     return (
-        <div>
+        <main className='app'>
             <h1>Country Quiz</h1>
             <QuizData />
-        </div>
+        </main>
     )
 }
 export default App

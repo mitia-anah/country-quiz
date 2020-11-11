@@ -1,97 +1,94 @@
 import React, { useEffect, useState } from 'react'
+import _ from "underscore";
 
 function QuizData() {
     const [countries, setCountries] = useState([])
     const [randomCountry, setRandomCountry] = useState({})
-    // console.log(randomCountry);
-    const [randomOption, setRandomOption] = useState([])
+    const [questionNum, setQuestionNum] = useState(0);
+    const [randomOptions, setRandomOptions] = useState([])
     const [winner, setWinner] = useState('')
-    const [disableFieldset, setDisableFieldset] = useState(false)
+    const [bgColor, setBgColor] = useState('white')
     const [guesse, setGuesse] = useState(0)
-    const [backgroundColor, setBackgroundColor] = useState('white')
+
 
     const getData = async () => {
         const apiUrl = "https://restcountries.eu/rest/v2/all";
         try {
             const res = await fetch(apiUrl);
-            const country = await res.json();
-            setRandomCountry(country);
-            // console.log(country);
-            getRandomCountry()
+            const data = await res.json();
+            setCountries(data);
+            getRandomCountry(data)
+            // console.log(data);
         } catch (e) {
             console.error(e);
         }
     }
-
     useEffect(() => {
         getData()
-    }, [])
+    }, [questionNum])
 
-    function getRandomCountry() {
-        const random = countries[Math.floor(Math.random() * countries.length)];
+    function getRandomCountry(randomCountry) {
+        const random = randomCountry[Math.floor(Math.random() * randomCountry.length)];
         console.log(random);
-        const randomOpt1 = countries[Math.floor(Math.random() * countries.length)];
-        const randomOpt2 = countries[Math.floor(Math.random() * countries.length)];
-        const randomOpt3 = countries[Math.floor(Math.random() * countries.length)];
-        const randomOptions = [random, randomOpt1, randomOpt2, randomOpt3];
-        randomOptions.sort(() => { return 0.5 - Math.random() });
-        setRandomCountry({
-            randomCountry: random,
-            randomOptions: randomOptions,
-            userIsWin: '',
-            disableFieldset: false
-        })
+        const randomOpt1 = randomCountry[Math.floor(Math.random() * randomCountry.length)];
+        const randomOpt2 = randomCountry[Math.floor(Math.random() * randomCountry.length)];
+        const randomOpt3 = randomCountry[Math.floor(Math.random() * randomCountry.length)];
+        const randomOption = [random, randomOpt1, randomOpt2, randomOpt3];
+        randomOption.sort(() => { return 0.5 - Math.random() });
+        setRandomCountry(random)
+        // console.log(randomOptions[0]);
+        setRandomOptions(randomOption)
     }
 
-    function checkWin(e) {
-        e.preventDefault()
+    function handleClick(e) {
         const winCountry = randomCountry.name;
         const userGuess = e.target.value;
         if (winCountry === userGuess) {
             setWinner({
-                winner: 'Win',
-                guesse: guesse + 1,
-                backgroundColor: { backgroundColor: '#81C784' }
+                answer: 'Win',
+                guesse: guess + 1,
+                bgColor: { backgroundColor: '#81C784' }
             })
         } else {
             setWinner({
                 winner: 'Lose',
-                backgroundColor: { backgroundColor: '#FF8A65' }
+                bgColor: { backgroundColor: '#FF8A65' }
             })
         }
-        setTimeout(() => {
-            getRandomCountry();
-            setCountries({
-                winner: '',
-                disableFieldset: false,
-                backgroundColor: { backgroundColor: 'white' }
-            })
-        }, 2000)
 
     }
-
     return (
-        <div className="main" style={{ backgroundColor }}>
+        <div className="main" >
             <div className="wrapper">
-                <h1>Country Guessing Game</h1>
-                <button className="rnd mui-btn mui-btn--raised" onClick={getRandomCountry}>Random</button>
                 <div className="img-container">
-                    <img className="mui-panel" src={randomCountry.flag} alt="Country flag" />
+                    {questionNum === 0 ?
+                        (
+                            <div>
+                                <img
+                                    src={randomCountry.flag}
+                                    alt="flag"
+                                />
+                                <h3 className="question">Which country does this flag belong to?</h3>
+                            </div>
+                        ) : (
+                            <h3 className="question">
+                                {randomCountry.capital} is the capital of
+                            </h3>
+                        )}
                 </div>
                 <h2>{winner === 'Win' ? 'You guess right! ' : ''}
                     {winner === 'Lose' ? 'You guess wrong. ' : ''}
                     Score:{guesse}</h2>
             </div>
-            <fieldset disabled={disableFieldset}>
-                <form onClick={checkWin}>
-                    <button className="mui-btn mui-btn--raised" value={randomOption[0]}>{randomOption[0]}</button>
-                    <button className="mui-btn mui-btn--raised" value={randomOption[1]}>{randomOption[1]}</button>
-                    <button className="mui-btn mui-btn--raised" value={randomOption[2]}>{randomOption[2]}</button>
-                    <button className="mui-btn mui-btn--raised" value={randomOption[3]}>{randomOption[3]}</button>
-                </form>
-            </fieldset>
+            <form>
+                {randomOptions.map(option =>
+                    <div key={option.numericCode}>
+                        <button onClick={(e) => handleClick(e)} className="options" value={option.name}>{option.name}</button>
+                    </div>
+                )}
+            </form>
+            <button>Next</button>
         </div>
     )
 }
-
 export default QuizData
