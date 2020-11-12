@@ -1,19 +1,19 @@
-function handleClick(e) {
-    if (!clicked) {
-        let { score, played } = clicked;
-        if (Number(e.target.value) === answer) {
-            setCountries({
-                correct: true,
-                clicked: true,
-                score: score + 1,
-                played: played + 1,
-            });
-        } else {
-            setCountries({
-                correct: false,
-                clicked: true,
-                played: played + 1
-            });
-        }
-    }
-}
+// import React from 'react'
+// // import undraw_winners_ao2o from 'undraw_winners_ao2o.svg'
+
+// function Quiz({ score }) {
+//     return (
+//         <div className='result'>
+//             <div>
+//                 <img className='result-img' src='' />
+//             </div>
+//             <div>
+//                 <h3>Results</h3>
+//             </div>
+//             <div>
+//                 <h4>Score:{score}</h4>
+//             </div>
+//         </div>
+//     )
+// }
+// export default Quiz

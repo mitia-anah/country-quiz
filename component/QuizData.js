@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import _ from "underscore";
+import Quiz from './Quiz'
 
 function QuizData() {
     const [countries, setCountries] = useState([])
     const [randomCountry, setRandomCountry] = useState({})
     const [questionNum, setQuestionNum] = useState(0);
     const [randomOptions, setRandomOptions] = useState([])
-    const [winner, setWinner] = useState('')
+    const [isUserWin, setIsUserWin] = useState(false)
     const [bgColor, setBgColor] = useState('white')
-    const [guesse, setGuesse] = useState(0)
-
+    const [score, setScore] = useState(0)
+    const [isClicked, setIsClicked] = useState(false)
 
     const getData = async () => {
         const apiUrl = "https://restcountries.eu/rest/v2/all";
@@ -18,7 +18,6 @@ function QuizData() {
             const data = await res.json();
             setCountries(data);
             getRandomCountry(data)
-            // console.log(data);
         } catch (e) {
             console.error(e);
         }
@@ -36,32 +35,40 @@ function QuizData() {
         const randomOption = [random, randomOpt1, randomOpt2, randomOpt3];
         randomOption.sort(() => { return 0.5 - Math.random() });
         setRandomCountry(random)
-        // console.log(randomOptions[0]);
         setRandomOptions(randomOption)
     }
 
-    function handleClick(e) {
-        const winCountry = randomCountry.name;
-        const userGuess = e.target.value;
-        if (winCountry === userGuess) {
-            setWinner({
-                answer: 'Win',
-                guesse: guess + 1,
+    const handleClick = () => {
+        if (isUserWin) {
+            setScore(score + 1);
+            setIsUserWin({
+                isUserWin: 'Win',
                 bgColor: { backgroundColor: '#81C784' }
             })
+            setBgColor(bgColor)
         } else {
-            setWinner({
-                winner: 'Lose',
+            setIsUserWin({
+                isUserWin: 'Lose',
                 bgColor: { backgroundColor: '#FF8A65' }
             })
+            setBgColor(bgColor)
         }
-
     }
+    const handleNext = () => {
+        if (!isClicked && randomOptions) {
+            setIsClicked(false);
+            setQuestionNum(questionNum + 1);
+            setScore(score + 1)
+        } else {
+            setScore(0)
+        }
+    }
+
     return (
         <div className="main" >
             <div className="wrapper">
-                <div className="img-container">
-                    {questionNum === 0 ?
+                <div className="question-text">
+                    {questionNum % 2 === 0 ?
                         (
                             <div>
                                 <img
@@ -76,19 +83,20 @@ function QuizData() {
                             </h3>
                         )}
                 </div>
-                <h2>{winner === 'Win' ? 'You guess right! ' : ''}
-                    {winner === 'Lose' ? 'You guess wrong. ' : ''}
-                    Score:{guesse}</h2>
+                <div>
+                    <h4> You scored {score} answer</h4>
+                </div>
             </div>
             <form>
                 {randomOptions.map(option =>
                     <div key={option.numericCode}>
-                        <button onClick={(e) => handleClick(e)} className="options" value={option.name}>{option.name}</button>
+                        <button onClick={() => handleClick(option.isUserWin)} className="options" value={option.name}>{option.name}</button>
                     </div>
                 )}
             </form>
-            <button>Next</button>
-        </div>
+            < button onClick={() => handleNext()
+            }> Next</button >
+        </div >
     )
 }
 export default QuizData
