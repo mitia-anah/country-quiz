@@ -59,20 +59,32 @@ h1 {
 .options {
     width: 400px;
     height: 56px;
+    border: none;
     background: #fff;
     border: 2px solid rgba(96,102,208,.7);
     box-sizing: border-box;
     border-radius: 12px;
     display: flex;
-    justify-content: space-around;
+    margin: 0.5rem;
+    justify-content: space-between;
   }
   .options:hover {
     background-color: goldenrod;
   }
-
-.next-button {
-    text-align: right;
-}
+  .next-button {
+    width: 116px;
+    height: 44px;
+    border: none;
+    background: #f9a826;
+    box-shadow: 0 2px 4px rgba(252,168,47,.4);
+    border-radius: 12px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: #fff;
+  }
 .Win {
     background-color: #81C784;
 }
@@ -122,4 +134,9 @@ h4 {
 }
 .Lose {
   background-color: #FF8A65;
+}
+
+.footer {
+  color: #fff;
+  text-align: center;
 }

@@ -20,19 +20,9 @@
 
 **Live app** : https://country-quiz-app.netlify.app/
 
-As long as you fulfill all the user stories, you can give your personal touches by adding transition, using your own images, changing colors, or even creating your own layout,...
+  ## Value
 
-Once you completed, submit your solutions by providing URLs for both GitHub repository and live app on Netlify and explain briefly what you have done.
-
-For the custom domain url you'll enter in netlify, please use the following naming convention : **country-quiz-_YOUR_FIRSTNAME_.netlify.app** (replace YOUR_FIRSTNAME by your firstname)
-
-Good luck everybody!
-
-Template for your readme :
-
-<!-- Please update value in the {}  -->
-
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">{Country Quiz}</h1>
 
 <div align="center">
   <h3>
@@ -63,12 +53,11 @@ Template for your readme :
 
 ![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+In this project, I've built a `Country Quiz` app. First thing I did was to create index.html and added a `script` tag to link the code. Second step was creating an index.js which will hold the my `App.js` file. That App.js has all my two components linked, which are `QuizData` that has the questions and the `QuizResult` has the results. 
 
--   Where can I see your demo?
--   What was your experience?
--   What have you learned/improved?
--   Your wisdom? :)
+-  You can see my demo when you click https://github.com/mitia-anah/country-quiz  
+-  It was such a nice project but I faced many challenges to get it worked. The most challenging part to me was getting the questions randomly. I could not finish the score and tryAgain button
+-   Thanks for this challenge, That was interesting!
 
 ### Built With
 

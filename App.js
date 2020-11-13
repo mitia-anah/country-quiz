@@ -18,7 +18,7 @@ function App() {
                         <QuizResult />
                     </Route>
                 </Switch>
-                {/* <Quiz /> */}</main>
+            </main>
             <footer className="footer">By Alexis Lagodka © 2020</footer>
         </div>
     )

@@ -24,7 +24,7 @@ function QuizData() {
     }
     useEffect(() => {
         getData()
-    }, [questionNum])
+    }, [])
 
     function getRandomCountry(randomCountry) {
         const random = randomCountry[Math.floor(Math.random() * randomCountry.length)];
@@ -45,7 +45,6 @@ function QuizData() {
             setTimeout(() => {
                 e.target.classList.add("Win");
                 setIsUserWin(true)
-                setScore(score + 1)
                 setIsClicked(true)
             }, 1000);
 
@@ -56,10 +55,14 @@ function QuizData() {
                 setIsClicked(true)
             })
         }
+
+        setTimeout(() => {
+            e.target.classList.remove("Win");
+        }, 1000);
     }
     const handleNext = () => {
         if (!isClicked) {
-            setIsClicked(false);
+            setIsClicked(true);
             setQuestionNum(questionNum + 1);
             setScore(score + 1)
         } else {
@@ -89,10 +92,10 @@ function QuizData() {
                 </div>
                 <form onClick={handleClick}>
                     <div>
-                        <button onClick={handleClick} className="options" value={randomOptions[0]}>{randomOptions[0]}</button>
-                        <button onClick={handleClick} className="options" value={randomOptions[1]}>{randomOptions[1]}</button>
-                        <button onClick={handleClick} className="options" value={randomOptions[2]}>{randomOptions[2]}</button>
-                        <button onClick={handleClick} className="options" value={randomOptions[3]}>{randomOptions[3]}</button>
+                        <button onClick={handleClick} className="options" value={randomOptions[0]}>A{randomOptions[0]}</button>
+                        <button onClick={handleClick} className="options" value={randomOptions[1]}>B{randomOptions[1]}</button>
+                        <button onClick={handleClick} className="options" value={randomOptions[2]}>C{randomOptions[2]}</button>
+                        <button onClick={handleClick} className="options" value={randomOptions[3]}>D{randomOptions[3]}</button>
                     </div>
                     < button onClick={handleNext} className='next-button'>
                         <Link to="/result">Next</Link></button >

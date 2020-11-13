@@ -34005,7 +34005,7 @@ function QuizData() {
 
   (0, _react.useEffect)(() => {
     getData();
-  }, [questionNum]);
+  }, []);
 
   function getRandomCountry(randomCountry) {
     const random = randomCountry[Math.floor(Math.random() * randomCountry.length)];
@@ -34029,7 +34029,6 @@ function QuizData() {
       setTimeout(() => {
         e.target.classList.add("Win");
         setIsUserWin(true);
-        setScore(score + 1);
         setIsClicked(true);
       }, 1000);
     } else if (e.target.value !== randomCountry.name) {
@@ -34039,11 +34038,15 @@ function QuizData() {
         setIsClicked(true);
       });
     }
+
+    setTimeout(() => {
+      e.target.classList.remove("Win");
+    }, 1000);
   }
 
   const handleNext = () => {
     if (!isClicked) {
-      setIsClicked(false);
+      setIsClicked(true);
       setQuestionNum(questionNum + 1);
       setScore(score + 1);
     } else {
@@ -34073,19 +34076,19 @@ function QuizData() {
     onClick: handleClick,
     className: "options",
     value: randomOptions[0]
-  }, randomOptions[0]), /*#__PURE__*/_react.default.createElement("button", {
+  }, "A", randomOptions[0]), /*#__PURE__*/_react.default.createElement("button", {
     onClick: handleClick,
     className: "options",
     value: randomOptions[1]
-  }, randomOptions[1]), /*#__PURE__*/_react.default.createElement("button", {
+  }, "B", randomOptions[1]), /*#__PURE__*/_react.default.createElement("button", {
     onClick: handleClick,
     className: "options",
     value: randomOptions[2]
-  }, randomOptions[2]), /*#__PURE__*/_react.default.createElement("button", {
+  }, "C", randomOptions[2]), /*#__PURE__*/_react.default.createElement("button", {
     onClick: handleClick,
     className: "options",
     value: randomOptions[3]
-  }, randomOptions[3])), /*#__PURE__*/_react.default.createElement("button", {
+  }, "D", randomOptions[3])), /*#__PURE__*/_react.default.createElement("button", {
     onClick: handleNext,
     className: "next-button"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
