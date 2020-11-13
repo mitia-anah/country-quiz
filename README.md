@@ -1,11 +1,9 @@
 # Country Quiz
-
-Challenge: Create a country quiz app using an API, and use React to handle the frontend. Don’t look at the existing solution. Fulfill user stories below:
-
 ![image](./assets/quiz1.png)
 ![image](./assets/quiz2.png)
 ![image](./assets/quiz3.png)
 ![image](./assets/quiz4.png)
+
 
 -   User story: I can see at least 2 types of question: a city is the capital of.. or a flag belong to country..
 -   User story: I can see select an answer

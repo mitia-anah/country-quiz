@@ -1,17 +1,26 @@
 import React from 'react'
-// import Quiz from './component/Quiz';
+import QuizResult from './component/QuizResult';
 import QuizData from './component/QuizData';
+import { Switch, Route } from 'react-router-dom'
+import adventureImg from "/assets/undraw_adventure_4hum 1.svg";
 
 function App() {
     return (
-        <>
-            <main className='app'>
-                <h1>Country Quiz</h1>
-                <QuizData />
-                {/* <Quiz /> */}
-            </main>
-            <div className="footer">By Alexis Lagodka © 2020</div>
-        </>
+        <div className='app'>
+            <main className="main">
+                <div className="header-card"><h1>COUNTRY QUIZ</h1><img className="adventure-img" src={adventureImg} alt="adventure image" />
+                </div>
+                <Switch>
+                    <Route exact path="/component/QuizData">
+                        <QuizData />
+                    </Route>
+                    <Route exact path="/component/QuizResult">
+                        <QuizResult />
+                    </Route>
+                </Switch>
+                {/* <Quiz /> */}</main>
+            <footer className="footer">By Alexis Lagodka © 2020</footer>
+        </div>
     )
 }
 export default App
