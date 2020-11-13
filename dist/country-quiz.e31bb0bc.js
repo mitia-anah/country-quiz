@@ -34089,7 +34089,7 @@ function QuizData() {
     onClick: handleNext,
     className: "next-button"
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/component/QuizResult"
+    to: "/result"
   }, "Next")))));
 }
 
@@ -34130,10 +34130,10 @@ function App() {
     alt: "adventure image"
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
-    path: "/component/QuizData"
+    path: "/"
   }, /*#__PURE__*/_react.default.createElement(_QuizData.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
-    path: "/component/QuizResult"
+    path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_QuizResult.default, null)))), /*#__PURE__*/_react.default.createElement("footer", {
     className: "footer"
   }, "By Alexis Lagodka \xA9 2020"));

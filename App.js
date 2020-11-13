@@ -11,10 +11,10 @@ function App() {
                 <div className="header-card"><h1>COUNTRY QUIZ</h1><img className="adventure-img" src={adventureImg} alt="adventure image" />
                 </div>
                 <Switch>
-                    <Route exact path="/component/QuizData">
+                    <Route exact path="/">
                         <QuizData />
                     </Route>
-                    <Route exact path="/component/QuizResult">
+                    <Route exact path="/result">
                         <QuizResult />
                     </Route>
                 </Switch>

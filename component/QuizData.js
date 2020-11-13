@@ -95,7 +95,7 @@ function QuizData() {
                         <button onClick={handleClick} className="options" value={randomOptions[3]}>{randomOptions[3]}</button>
                     </div>
                     < button onClick={handleNext} className='next-button'>
-                        <Link to="/component/QuizResult">Next</Link></button >
+                        <Link to="/result">Next</Link></button >
                 </form>
             </div>
         </div >
