@@ -66,6 +66,9 @@ h1 {
     display: flex;
     justify-content: space-around;
   }
+  .options:hover {
+    background-color: goldenrod;
+  }
 
 .next-button {
     text-align: right;

@@ -29881,23 +29881,6 @@ function Quiz({
   }, "Try again"))));
 }
 
-{
-  /* {randomOptions.map(option =>
-                         <div key={option.numericCode} className='answer-content'>
-                             <button onClick={handleClick} className="options" value={option.name}>{option.name}</button>
-                             <button onClick={handleClick} className="options" value={option.name}>{option.name}</button>
-                             <button onClick={handleClick} className="options" value={option.name}>{option.name}</button>
-                             <button onClick={handleClick} className="options" value={option.name}>{option.name}</button>
-                         </div>
-                     )} */
-} // const random = randomCountry[Math.floor(Math.random() * randomCountry.length)];
-// console.log(random);
-// const randomOpt1 = randomCountry[Math.floor(Math.random() * randomCountry.length)];
-// const randomOpt2 = randomCountry[Math.floor(Math.random() * randomCountry.length)];
-// const randomOpt3 = randomCountry[Math.floor(Math.random() * randomCountry.length)];
-// const randomOption = [random.name, randomOpt1.name, randomOpt2.name, randomOpt3.name];
-// randomOption.sort(() => { return 0.5 - Math.random() });
-
 var _default = Quiz;
 exports.default = _default;
 },{"react":"node_modules/react/index.js","style.css":"node_modules/style.css/style.css","../assets/winner.svg":"assets/winner.svg"}],"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
@@ -33993,10 +33976,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _QuizResult = _interopRequireDefault(require("./QuizResult"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -34047,14 +34026,18 @@ function QuizData() {
 
     if (e.target.value === randomCountry.name) {
       console.log(e.target);
-      e.target.classList.add("Win");
-      setIsUserWin(true);
-      setScore(score + 1);
-      setIsClicked(true);
+      setTimeout(() => {
+        e.target.classList.add("Win");
+        setIsUserWin(true);
+        setScore(score + 1);
+        setIsClicked(true);
+      }, 1000);
     } else if (e.target.value !== randomCountry.name) {
-      e.target.classList.add("Lose");
-      setIsUserWin(false);
-      setIsClicked(true);
+      setTimeout(() => {
+        e.target.classList.add("Lose");
+        setIsUserWin(false);
+        setIsClicked(true);
+      });
     }
   }
 
@@ -34112,7 +34095,7 @@ function QuizData() {
 
 var _default = QuizData;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./QuizResult":"component/QuizResult.js"}],"assets/undraw_adventure_4hum 1.svg":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"assets/undraw_adventure_4hum 1.svg":[function(require,module,exports) {
 module.exports = "/undraw_adventure_4hum 1.22341882.svg";
 },{}],"App.js":[function(require,module,exports) {
 "use strict";

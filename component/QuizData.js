@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import QuizResult from './QuizResult';
 
 function QuizData() {
     const [countries, setCountries] = useState([])
@@ -43,14 +42,19 @@ function QuizData() {
         e.preventDefault()
         if (e.target.value === randomCountry.name) {
             console.log(e.target);
-            e.target.classList.add("Win");
-            setIsUserWin(true)
-            setScore(score + 1)
-            setIsClicked(true)
+            setTimeout(() => {
+                e.target.classList.add("Win");
+                setIsUserWin(true)
+                setScore(score + 1)
+                setIsClicked(true)
+            }, 1000);
+
         } else if (e.target.value !== randomCountry.name) {
-            e.target.classList.add("Lose");
-            setIsUserWin(false)
-            setIsClicked(true)
+            setTimeout(() => {
+                e.target.classList.add("Lose");
+                setIsUserWin(false)
+                setIsClicked(true)
+            })
         }
     }
     const handleNext = () => {

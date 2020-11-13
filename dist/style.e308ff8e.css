@@ -66,6 +66,9 @@ h1 {
     display: flex;
     justify-content: space-around;
   }
+  .options:hover {
+    background-color: goldenrod;
+  }
 
 .next-button {
     text-align: right;
@@ -120,5 +123,6 @@ h4 {
 .Lose {
   background-color: #FF8A65;
 }
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

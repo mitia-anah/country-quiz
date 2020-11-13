@@ -36,11 +36,11 @@ Template for your readme :
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://github.com/mitia-anah/country-quiz">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://country-quiz-rosny.netlify.app/">
       Solution
     </a>
   </h3>
