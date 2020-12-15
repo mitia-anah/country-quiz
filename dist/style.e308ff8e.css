@@ -64,13 +64,21 @@ h1 {
     border: 2px solid rgba(96,102,208,.7);
     box-sizing: border-box;
     border-radius: 12px;
-    display: flex;
     margin: 0.5rem;
-    justify-content: space-between;
   }
-  .options:hover {
-    background-color: goldenrod;
-  }
+
+.options> .letter {
+  text-align: start;
+  transform: translate(6px, 16px);
+  color: rgba(96,102,208,.8);
+}
+.answer {
+  transform: translate(10px, -20px);
+  color: rgba(96,102,208,.8);
+}
+.options:hover {
+  background-color: goldenrod;
+}
   .next-button {
     width: 116px;
     height: 44px;
@@ -84,11 +92,25 @@ h1 {
     font-size: 18px;
     line-height: 27px;
     color: #fff;
+    transform: translate(290px, 0);
   }
 .Win {
     background-color: #81C784;
 }
-
+.originalColor {
+  background-color: #fff;
+  /* color: blueviolet; */
+}
+.CheckImg, .CrossImg {
+  background-repeat: no-repeat;
+  background-position: 100%;
+}
+.CrossImg {
+  background-image: url('/crossImg.fd0e4ed5.svg');
+}
+.CheckImg {
+  background-image: url("/checkImage.f239c0f6.svg");
+}
 .Quiz-card {
     width: 464px;
   height: 515px;

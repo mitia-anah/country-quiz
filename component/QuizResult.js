@@ -1,8 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import style from 'style.css'
 import undrawWinner from '../assets/winner.svg'
 
-function Quiz({ score, getRandomCountry }) {
+function Quiz(props) {
+    const {
+        score,
+        setScore,
+        setShowNextButton,
+        setIsUserWin,
+    } = props
+
+    function handleTryAgainButton() {
+        setIsUserWin(false)
+        setScore(0)
+        setShowNextButton(false)
+    }
     return (
         <div className='Quiz-card'>
             <div className='result'>
@@ -16,10 +29,10 @@ function Quiz({ score, getRandomCountry }) {
                     <h4>Score:{score}</h4>
                 </div>
                 <div>
-                    <button onClick={getRandomCountry} className="tryAgain-button">Try again</button>
+                    <button onClick={handleTryAgainButton} className="tryAgain-button">Try again</button>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 export default Quiz
