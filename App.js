@@ -40,15 +40,17 @@ function App() {
 
     function handleClick(e) {
         if (e.target.value === randomCountry.name) {
-            e.target.classList.add("Win");
-            e.target.classList.add('CheckImg')
+            e.currentTarget.classList.add("Win");
+            e.currentTarget.classList.add('CheckImg')
+            // correctAnswer.current.classList.add('originalColor')
             setShowNextButton(true)
             setAnswer(true)
         } else {
-            e.target.classList.add("Lose");
-            e.target.classList.add('CrossImg')
+            e.currentTarget.classList.add("Lose");
+            e.currentTarget.classList.add('CrossImg')
             correctAnswer.current.classList.add('Win')
             correctAnswer.current.classList.add('CheckImg')
+            // correctAnswer.current.classList.add('originalColor')
             setAnswer(false)
             setShowNextButton(true)
         }

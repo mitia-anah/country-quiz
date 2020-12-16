@@ -70,11 +70,14 @@ h1 {
 .options> .letter {
   text-align: start;
   transform: translate(6px, 16px);
-  color: rgba(96,102,208,.8);
+ 
 }
 .answer {
   transform: translate(10px, -20px);
-  color: rgba(96,102,208,.8);
+
+}
+.options {
+  color:rgba(96,102,208,.7);
 }
 .options:hover {
   background-color: goldenrod;
@@ -96,9 +99,15 @@ h1 {
   }
 .Win {
     background-color: #81C784;
+    color: white;
+}
+.Lose {
+  background-color: #FF8A65;
+  color: white;
 }
 .originalColor {
   background-color: #fff;
+ 
   /* color: blueviolet; */
 }
 .CheckImg, .CrossImg {
@@ -153,9 +162,6 @@ h4 {
     font-size: 18px;
     line-height: 27px;
     color: #1d355d;
-}
-.Lose {
-  background-color: #FF8A65;
 }
 
 .footer {
