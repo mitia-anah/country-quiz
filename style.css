@@ -29,8 +29,10 @@ h1 {
   color: #f2f2f2;
 }
 
-.wrapper {
-    margin: 2rem;
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin-inline-start: 1.5rem;
 }
 .flag {
     width: 84px;
@@ -49,6 +51,11 @@ h1 {
     font-size: 24px;
     line-height: 36px;
     color: #2f527b;
+}
+.question-text1 {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
 }
 .answer-content {
     display: flex;
@@ -107,8 +114,7 @@ h1 {
 }
 .originalColor {
   background-color: #fff;
- 
-  /* color: blueviolet; */
+  color:rgba(96,102,208,.7);
 }
 .CheckImg, .CrossImg {
   background-repeat: no-repeat;

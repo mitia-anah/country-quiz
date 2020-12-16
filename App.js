@@ -39,10 +39,9 @@ function App() {
     }
 
     function handleClick(e) {
-        if (e.target.value === randomCountry.name) {
+        if (e.currentTarget.value === randomCountry.name) {
             e.currentTarget.classList.add("Win");
             e.currentTarget.classList.add('CheckImg')
-            // correctAnswer.current.classList.add('originalColor')
             setShowNextButton(true)
             setAnswer(true)
         } else {
@@ -50,19 +49,18 @@ function App() {
             e.currentTarget.classList.add('CrossImg')
             correctAnswer.current.classList.add('Win')
             correctAnswer.current.classList.add('CheckImg')
-            // correctAnswer.current.classList.add('originalColor')
             setAnswer(false)
             setShowNextButton(true)
         }
     }
 
     const handleNext = () => {
-
         setQuestion(Math.floor(Math.random() * 2))
         if (answer) {
             getRandomCountry(countries)
             setScore(prevScore => prevScore + 1)
             correctAnswer.current.classList.add('originalColor')
+            correctAnswer.current.classList.remove('CheckImg')
         }
 
         else if (!answer) {

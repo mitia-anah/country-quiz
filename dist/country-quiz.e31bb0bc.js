@@ -34014,7 +34014,9 @@ function QuizData(props) {
     className: "question"
   }, "Which country does this flag belong to?")), question === 1 && /*#__PURE__*/_react.default.createElement("h3", {
     className: "question2"
-  }, randomCountry.capital, " is the capital of"), question === 2 && /*#__PURE__*/_react.default.createElement("h3", null, randomCountry.demonym, " are people from")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+  }, randomCountry.capital, " is the capital of"), question === 2 && /*#__PURE__*/_react.default.createElement("h3", null, randomCountry.demonym, " are people from")), /*#__PURE__*/_react.default.createElement("div", {
+    className: "buttons"
+  }, /*#__PURE__*/_react.default.createElement("button", {
     ref: randomOptions[0] === randomCountry.name ? correctAnswer : null,
     onClick: handleClick,
     className: "options",
@@ -34119,18 +34121,16 @@ function App() {
   }
 
   function handleClick(e) {
-    if (e.target.value === randomCountry.name) {
+    if (e.currentTarget.value === randomCountry.name) {
       e.currentTarget.classList.add("Win");
-      e.currentTarget.classList.add('CheckImg'); // correctAnswer.current.classList.add('originalColor')
-
+      e.currentTarget.classList.add('CheckImg');
       setShowNextButton(true);
       setAnswer(true);
     } else {
       e.currentTarget.classList.add("Lose");
       e.currentTarget.classList.add('CrossImg');
       correctAnswer.current.classList.add('Win');
-      correctAnswer.current.classList.add('CheckImg'); // correctAnswer.current.classList.add('originalColor')
-
+      correctAnswer.current.classList.add('CheckImg');
       setAnswer(false);
       setShowNextButton(true);
     }
@@ -34143,6 +34143,7 @@ function App() {
       getRandomCountry(countries);
       setScore(prevScore => prevScore + 1);
       correctAnswer.current.classList.add('originalColor');
+      correctAnswer.current.classList.remove('CheckImg');
     } else if (!answer) {
       setIsUserWin(true);
     }
@@ -34227,7 +34228,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54352" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58110" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

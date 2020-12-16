@@ -34,7 +34,7 @@ function QuizData(props) {
                         <h3>{randomCountry.demonym} are people from</h3>
                     )}
                 </div>
-                <div>
+                <div className="buttons">
                     <button ref={randomOptions[0] === randomCountry.name ? correctAnswer : null} onClick={handleClick} className="options" value={randomOptions[0]}>
                         <p className='letter'>A</p>
                         <p className='answer'>{randomOptions[0]}</p>
